@@ -1,0 +1,25 @@
+INP
+STA n
+LDA pos
+OUT
+LDA pos
+ADD dois
+STA pos
+
+loop LDA pos
+OUT
+
+LDA pos
+ADD dois
+STA pos
+
+LDA n
+SUB um
+STA n
+BRP loop
+HLT
+
+dois DAT 2
+um DAT 1
+pos DAT 0
+n DAT
