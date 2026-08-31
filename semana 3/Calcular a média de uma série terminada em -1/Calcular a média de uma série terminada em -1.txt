@@ -1,0 +1,62 @@
+INP
+STA num
+LDA num
+SUB menos_um
+BRZ fim
+
+LDA num
+STA soma
+
+LDA contador
+ADD um
+STA contador
+
+loop INP
+STA num
+
+LDA num
+SUB menos_um
+BRZ media
+
+LDA soma
+ADD num
+STA soma
+
+LDA contador
+ADD um
+STA contador
+BRA loop
+
+media LDA soma
+STA resto
+
+LDA contador
+STA divisor
+
+quociente LDA resto
+SUB divisor
+BRP continua
+
+LDA quociente
+OUT
+HLT
+
+continua STA resto
+LDA resultado
+ADD um
+STA resultado
+BRA quociente
+
+fim LDA resultado
+OUT
+HLT
+
+menos_um DAT -1
+um DAT 1
+soma DAT 0
+contador DAT 0
+num DAT
+resto DAT
+divisor DAT
+quociente DAT 0
+resultado DAT 0
