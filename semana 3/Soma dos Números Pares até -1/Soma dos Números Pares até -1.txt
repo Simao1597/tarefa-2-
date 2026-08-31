@@ -1,0 +1,33 @@
+INP
+STA num
+
+loop LDA num
+SUB menos_um
+BRZ fim
+
+LDA num
+STA temp
+
+paridade LDA temp
+SUB dois
+BRZ par
+BRP paridade
+
+proximo INP
+STA num
+BRA loop
+
+par LDA soma
+ADD num
+STA soma
+BRA proximo
+
+fim LDA soma
+OUT
+HLT
+
+menos_um DAT -1
+dois DAT 2
+soma DAT 0
+num DAT
+temp DAT
