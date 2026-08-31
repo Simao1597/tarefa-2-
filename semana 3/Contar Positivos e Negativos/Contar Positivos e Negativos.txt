@@ -1,0 +1,31 @@
+INP
+STA num
+
+loop LDA num
+BRZ fim
+
+BRP positivo
+
+LDA negativos
+ADD um
+STA negativos
+BRA proximo
+
+positivo LDA positivos
+ADD um
+STA positivos
+
+proximo INP
+STA num
+BRA loop
+
+fim LDA positivos
+OUT
+LDA negativos
+OUT
+HLT
+
+um DAT 1
+positivos DAT 0
+negativos DAT 0
+num DAT
