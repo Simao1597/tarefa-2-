@@ -1,0 +1,33 @@
+INP
+STA dividendo
+
+INP
+STA divisor
+
+LDA zero
+STA quociente
+
+loop LDA dividendo
+SUB divisor
+BRP continua
+
+LDA dividendo
+STA resto
+LDA quociente
+OUT
+LDA resto
+OUT
+HLT
+
+continua STA dividendo
+LDA quociente
+ADD um
+STA quociente
+BRA loop
+
+zero DAT 0
+um DAT 1
+dividendo DAT
+divisor DAT
+quociente DAT 0
+resto DAT
