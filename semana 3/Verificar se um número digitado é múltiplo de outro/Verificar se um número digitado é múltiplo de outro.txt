@@ -1,0 +1,27 @@
+INP
+STA num
+
+INP
+STA divisor
+
+loop LDA num
+SUB divisor
+BRZ multiplo
+BRP continua
+BRA nao_multiplo
+
+continua STA num
+BRA loop
+
+multiplo LDA sim
+OUT
+HLT
+
+nao_multiplo LDA nao
+OUT
+HLT
+
+sim DAT 1
+nao DAT 0
+num DAT
+divisor DAT
