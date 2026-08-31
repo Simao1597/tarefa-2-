@@ -1,0 +1,40 @@
+INP
+STA n
+
+LDA um
+STA resultado
+
+loop LDA n
+SUB um
+BRZ fim
+STA n
+
+LDA resultado
+STA multiplicando
+
+LDA zero
+STA resultado
+
+LDA n
+STA contador
+
+multiplica LDA resultado
+ADD multiplicando
+STA resultado
+
+LDA contador
+SUB um
+STA contador
+BRZ loop
+BRA multiplica
+
+fim LDA resultado
+OUT
+HLT
+
+zero DAT 0
+um DAT 1
+n DAT
+resultado DAT 1
+multiplicando DAT
+contador DAT
