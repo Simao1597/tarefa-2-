@@ -1,0 +1,37 @@
+INP
+STA n
+LDA fib_2
+OUT
+LDA pos
+ADD um
+STA pos
+
+LDA fib_1
+OUT
+LDA pos
+ADD um
+STA pos
+
+loop LDA fib_2
+ADD fib_1
+STA fib
+OUT
+
+LDA pos
+ADD um
+STA pos
+LDA fib_1
+STA fib_2
+LDA fib
+STA fib_1
+LDA n
+SUB pos
+BRP loop
+HLT
+
+um DAT 1
+fib_2 DAT 0
+fib_1 DAT 1
+fib DAT
+pos DAT 0
+n DAT
