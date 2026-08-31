@@ -1,0 +1,23 @@
+INP
+STA num
+
+loop LDA num
+SUB menos_um
+BRZ fim
+
+LDA contador
+ADD um
+STA contador
+
+INP
+STA num
+BRA loop
+
+fim LDA contador
+OUT
+HLT
+
+menos_um DAT -1
+um DAT 1
+contador DAT 0
+num DAT
