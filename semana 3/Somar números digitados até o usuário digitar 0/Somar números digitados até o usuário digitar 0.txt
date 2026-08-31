@@ -1,0 +1,18 @@
+INP
+STA num
+
+loop LDA num
+BRZ fim
+ADD soma
+STA soma
+
+INP
+STA num
+BRA loop
+
+fim LDA soma
+OUT
+HLT
+
+soma DAT 0
+num DAT
