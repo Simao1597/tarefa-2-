@@ -1,0 +1,27 @@
+INP
+STA num
+LDA num
+STA menor
+
+loop INP
+STA num
+
+LDA num
+SUB menos_um
+BRZ fim
+
+LDA num
+SUB menor
+BRP loop
+
+LDA num
+STA menor
+BRA loop
+
+fim LDA menor
+OUT
+HLT
+
+menos_um DAT -1
+menor DAT
+num DAT
