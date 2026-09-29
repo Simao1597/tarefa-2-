@@ -1,0 +1,22 @@
+var plane = createSprite(50, 350);
+plane.setAnimation("plane");
+var rock = createSprite(150, 350);
+rock.setAnimation("rock");
+var rockdown = createSprite(350, 100);
+rockdown.setAnimation("rock_down");
+
+// You might want to change these 
+plane.velocityY = -9;
+plane.velocityX = 3;
+
+function draw() {
+  background("lightblue");
+  plane.velocityY = plane.velocityY + 0.18;
+  
+  // Make the Y velocity more downward
+  
+  drawSprites();
+}
+
+// O código cria um avião que se movimenta para frente e sobe, depois começa a descer pela gravidade.
+// Também cria duas pedras como obstáculos no cenário.

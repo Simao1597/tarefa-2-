@@ -1,0 +1,81 @@
+var p1 = createSprite(200, 290);
+p1.setAnimation("blue_hoodie_hands_in_hoodie_1");
+var obs1 = createSprite(randomNumber(50, 350), -50);
+obs1.setAnimation("bowlingball_1");
+obs1.setCollider("circle");
+obs1.velocityY = 0.25;
+var obs2 = createSprite(randomNumber(50, 350), -80);
+obs2.setAnimation("bowlingball_1");
+obs2.setCollider("circle");
+obs2.velocityY = 0.25;
+var obs3 = createSprite(randomNumber(50, 350), -100);
+obs3.setAnimation("bowlingball_1");
+obs3.setCollider("circle");
+obs3.velocityY = 0.25;
+p1.scale = 0.25;
+obs1.scale = 0.1;
+obs2.scale = 0.1;
+obs3.scale = 0.1;
+function draw() {
+  background("lightblue");
+  fill("brown");
+  rect(0, 340, 400, 200);
+  if (keyWentDown("right")) {
+    p1.velocityX = 2;
+  }
+  if (keyWentDown("left")) {
+    p1.velocityX = -2;
+  }
+if (p1.isTouching(obs1)) {
+  background("white");
+  textSize(50);
+  fill("red");
+  text("PERDEU", 40, 200);
+    obs1.velocityY = 0;
+    p1.velocityX= 0;
+    obs1.visible = false;
+    obs2.visible = false;
+    obs3.visible = false;
+}
+
+if (p1.isTouching(obs2)) {
+  background("white");
+  textSize(50);
+  fill("red");
+  text("PERDEU", 40, 200);
+  obs2.velocityY = 0;
+  p1.velocityX= 0;
+   obs2.visible = false;
+   obs1.visible = false;
+   obs3.visible = false;
+}
+
+if (p1.isTouching(obs3)) {
+  background("white");
+  textSize(50);
+  fill("red");
+  text("PERDEU", 40, 200);
+    obs3.velocityY = 0;
+    p1.velocityX= 0;
+     obs3.visible = false;
+     obs1.visible = false;
+    obs2.visible = false;
+}
+  if (obs1.y > 450) {
+    obs1.y = -50;
+  }
+  if (obs2.y > 450) {
+    obs2.y = -80;
+  }
+  if (obs3.y > 450) {
+    obs3.y = -100;
+  }
+  obs1.velocityY = obs1.velocityY + 0.01;
+  obs2.velocityY = obs2.velocityY + 0.01;
+  obs3.velocityY = obs3.velocityY + 0.01;
+  
+  drawSprites();
+}
+
+// O código cria um jogo em que o jogador precisa desviar das bolas que caem.
+// O jogador pode se mover para os lados e, ao tocar em um obstáculo, aparece "PERDEU".
