@@ -1,0 +1,36 @@
+var animal1 = createSprite(50, 250);
+animal1.setAnimation("lion_1");
+animal1.scale = 0.5;
+
+var animal2 = createSprite(300, 300);
+animal2.setAnimation("mouse_1");
+
+drawSprites();
+
+function draw() {
+  background("lightblue");
+  fill("green");
+  rect(0, 300, 400, 200);
+
+  fill("withe");
+  ellipse(100, 50, 200, 100);
+  ellipse(300, 150, 200, 100);
+  ellipse(100, 130, 200, 100);
+
+  fill("black");
+  textSize(15);
+  text("Eu sou o rei da selva  !!!", 20, 50);
+
+  textSize(20);
+  text("Tem certeza?", 250, 150);
+
+  textSize(15);
+  text("AHHHHHHHHHHH  !!!!!!!", 20, 130);
+
+  animal1.x = randomNumber(50, 60);
+
+  drawSprites();
+}
+
+// O código cria um leão e um rato, desenha o cenário e adiciona textos.
+// O leão se movimenta aleatoriamente entre as posições 50 e 60.

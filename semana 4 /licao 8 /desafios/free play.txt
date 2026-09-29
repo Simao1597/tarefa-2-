@@ -1,0 +1,15 @@
+var foguete = createSprite(200, 200);
+var luas = createSprite(200, 350);
+luas.setAnimation("sticker_28_1");
+foguete.setAnimation("retroship_14_1");
+
+function draw() {
+  background("darkblue");
+  foguete.scale = 0.25;
+  luas.scale = 0.5;
+  foguete.x = randomNumber(198, 202);
+  drawSprites();
+}
+
+// O código cria um foguete e uma lua em um cenário espacial.
+// O foguete muda levemente de posição e os dois sprites têm seus tamanhos ajustados.
