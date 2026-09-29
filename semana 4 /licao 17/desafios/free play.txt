@@ -1,0 +1,100 @@
+var jogador = createSprite(200, 350, 30, 30);
+var moeda = createSprite(100, 100, 20, 20);
+var inimigo = createSprite(200, 150, 30, 30);
+
+var pontos = 0;
+var jogo = true;
+inimigo.velocityX = 3;
+function draw() {
+  background("lightblue");
+  if (jogo) {
+    moverJogador();
+    moverInimigo();
+    verificarMoeda();
+    verificarInimigo();
+    desenharCenario();
+    mostrarPontos();
+    if (pontos >= 10) {
+      jogo = false;
+    }
+  } else {
+    telaFinal();
+  }
+  drawSprites();
+}
+function moverJogador() {
+  if (keyDown("left")) {
+    jogador.x = jogador.x - 5;
+  }
+  if (keyDown("right")) {
+    jogador.x = jogador.x + 5;
+  }
+  if (keyDown("up")) {
+    jogador.y = jogador.y - 5;
+  }
+  if (keyDown("down")) {
+    jogador.y = jogador.y + 5;
+  }
+  if (jogador.x < 15) {
+    jogador.x = 15;
+  }
+  if (jogador.x > 385) {
+    jogador.x = 385;
+  }
+  if (jogador.y < 15) {
+    jogador.y = 15;
+  }
+  if (jogador.y > 365) {
+    jogador.y = 365;
+  }
+}
+function moverInimigo() {
+  if (inimigo.x > 385 || inimigo.x < 15) {
+    inimigo.velocityX = inimigo.velocityX * -1;
+  }
+}
+function verificarMoeda() {
+  if (jogador.isTouching(moeda)) {
+    pontos = pontos + 1;
+ 
+    moeda.x = randomNumber(30, 370);
+    moeda.y = randomNumber(50, 350);
+  }
+}
+function verificarInimigo() {
+  if (jogador.isTouching(inimigo)) {
+    jogo = false;
+    jogador.velocityX = 0;
+    jogador.velocityY = 0;
+    inimigo.velocityX = 0;
+  }
+}
+function desenharCenario() {
+  fill("green");
+  rect(0, 380, 400, 20);
+  fill("blue");
+  jogador.shapeColor = "blue";
+  fill("yellow");
+  moeda.shapeColor = "yellow";
+  fill("red");
+  inimigo.shapeColor = "red";
+}
+function mostrarPontos() {
+  fill("black");
+  textSize(20);
+  text("Pontos: " + pontos, 20, 30);
+}
+function telaFinal() {
+  fill("black");
+  textSize(30);
+  if (pontos >= 10) {
+    text("VOCE VENCEU!", 90, 180);
+  } else {
+    text("GAME OVER!", 110, 180);
+  }
+  textSize(20);
+  text("Pontos: " + pontos, 160, 220);
+}
+
+// O código cria um jogo completo com jogador, moeda e inimigo.
+// O jogador coleta moedas para ganhar pontos e vence ao alcançar 10 pontos, mas perde ao tocar no inimigo.

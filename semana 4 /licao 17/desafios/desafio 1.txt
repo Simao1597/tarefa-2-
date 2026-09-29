@@ -1,0 +1,53 @@
+function draw() {
+  if (World.mouseY > 200) {
+    drawScene1();
+  } else {
+    drawScene2();
+  }
+}
+
+function drawScene1() {
+  background("lightblue");
+  
+  fill("yellow");
+  ellipse(60, 60, 70, 70);
+  
+  fill("green");
+  rect(0, 300, 400, 100);
+  
+  fill("brown");
+  rect(130, 250, 140, 15);
+  rect(145, 265, 15, 35);
+  rect(240, 265, 15, 35);
+  
+  fill("brown");
+  rect(330, 180, 30, 120);
+  
+  fill("green");
+  ellipse(345, 170, 100, 100);
+}
+
+function drawScene2() {
+  background("skyblue");
+  
+  fill("yellow");
+  ellipse(330, 60, 70, 70);
+  
+  fill("blue");
+  rect(0, 220, 400, 100);
+  
+  fill("wheat");
+  rect(0, 320, 400, 80);
+  
+  fill("red");
+  triangle(100, 180, 40, 250, 160, 250);
+  
+  fill("brown");
+  rect(95, 250, 10, 70);
+  
+  fill("orange");
+  ellipse(280, 290, 40, 40);
+}
+
+// O código cria duas cenas diferentes usando funções.
+// A cena muda de acordo com a posição vertical do mouse na tela.
