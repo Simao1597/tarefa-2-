@@ -1,0 +1,16 @@
+//1) Add the draw loop block to the bottom of this program.
+//2) Move any blocks that need to be inside the draw loop.
+
+var salt = createSprite(200,200);
+salt.setAnimation("salt");
+
+function draw() {
+  background("skyblue");
+  salt.x = randomNumber(200, 200);
+  salt.y = randomNumber(190, 205);
+  salt.rotation = 180;
+  drawSprites();
+}
+
+// O código cria um sprite de sal, coloca um fundo azul
+// e faz o sal mudar de posição e ficar girado na tela.
