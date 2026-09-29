@@ -1,0 +1,54 @@
+var coin = createSprite(200,10);
+coin.setAnimation("coin_gold_1");
+setCoin();
+
+var bunny = createSprite(200,350);
+bunny.setAnimation("bunny1_ready_1");
+
+var score = 0;
+
+function draw() {
+  background("white");
+  if (bunny.isTouching(coin)) {
+    score = score + 1;
+    setCoin();
+  }
+  
+  if(keyDown("left")){
+    bunny.x = bunny.x - 2;
+  }
+  
+  if(keyDown("right")){
+    bunny.x = bunny.x + 2;
+  }
+  
+  if(coin.y > 400){
+    setCoin();
+  }
+  
+  if (score < 10) {
+    setNada();
+  } else {
+    setFundo();
+  }
+  textSize(20);
+  text("Score: " + score, 10, 10, 100, 100);
+  drawSprites();
+}
+
+function setCoin(){
+coin.velocityY = randomNumber(1, 10);
+coin.y = 10;
+coin.x = randomNumber(30, 330);
+}
+function setFundo() {
+  fill("red");
+  textSize(20);
+  text("PARABENS!!", 120, 40);
+}
+function setNada() {
+  point(450, 200);
+}
+
+// O código cria um jogo em que o coelho deve pegar moedas que caem.
+// O jogador controla o coelho pelas setas, ganha pontos e recebe uma mensagem ao alcançar 10 pontos.
