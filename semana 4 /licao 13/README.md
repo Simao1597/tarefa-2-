@@ -1,1 +1,1 @@
-
+Aprendi a criar movimentos e interações com sprites. Trabalhei com um alienígena que se movimenta pelas bordas da tela, um peixe que muda de direção e animação e uma bola que se movimenta entre duas raquetes. Também utilizei condições, velocidades, animações e posições para controlar os objetos.
