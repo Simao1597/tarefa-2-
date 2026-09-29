@@ -1,1 +1,1 @@
-
+Aprendi a trabalhar com velocidade, gravidade e movimento dos sprites. Criei objetos que sobem e descem, obstáculos que caem e personagens que podem ser movimentados pelo teclado. Também aprendi a usar colisões, condições, velocidades e mensagens para criar diferentes situações nos jogos.
