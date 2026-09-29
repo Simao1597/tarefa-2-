@@ -1,0 +1,21 @@
+var grass = createSprite(200,200);
+grass.setAnimation("floating_grass");
+
+var alien = createSprite(180,100);
+alien.setAnimation("alien");
+alien.scale = 1.3;
+
+var robot = createSprite(300,300);
+robot.setAnimation("robot");
+robot.scale = 0.2;
+
+drawSprites();
+
+textSize(30);
+text("idai", 140, 90);
+
+textSize(12);
+text("eu sou um robo", 300, 260);
+
+// O código cria um cenário com grama, um alienígena e um robô.
+// Também define o tamanho das imagens e mostra textos na tela.
