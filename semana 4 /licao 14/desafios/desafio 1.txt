@@ -1,0 +1,10 @@
+var roller = createSprite(200, 200);
+roller.scale = 2;
+roller.setAnimation("roller_1");
+// Use .setCollider() with all 6 parameters.
+roller.setCollider("rectangle", 0, 0, 180, 40, -60);
+roller.debug = true;
+drawSprites();
+
+// O código cria um sprite de um rolo e configura um colisor retangular.
+// O colisor é ajustado com posição, tamanho e rotação para definir a área de colisão do sprite.

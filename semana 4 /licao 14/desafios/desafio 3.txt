@@ -1,0 +1,126 @@
+//GAME SETUP
+// Create the sprites
+var fogue = createSprite(160, 326);
+fogue.setAnimation("retroship_13_1");
+var moeda = createSprite(475, randomNumber(50, 350));
+moeda.setAnimation("retro_coin_1");
+var mete = createSprite(450, 326);
+mete.setAnimation("animation_1");
+mete.debug = true;
+mete.setCollider("rectangle", -10, -10, 25, 30);
+fogue.scale = 0.25;
+moeda.scale = 0.35;
+mete.scale = 2;
+// set velocity for the obstacle and the target
+moeda.velocityX = -3;
+mete.velocityX = -5;
+
+
+//create the variables
+var score = 0;
+var health = 100;
+
+function draw() {
+  // BACKGROUND
+  // draw the ground and other background
+ background("darkblue");
+  noStroke();
+  fill("white");
+  regularPolygon(200, 100, 3, 6);
+  regularPolygon(180, 200, 3, 6);
+  regularPolygon(160, 160, 3, 6);
+  regularPolygon(140, 120, 3, 6);
+  regularPolygon(120, 180, 3, 6);
+  regularPolygon(100, 160, 3, 6);
+  regularPolygon(80, 140, 3, 6);
+  regularPolygon(60, 220, 3, 6);
+  regularPolygon(40, 120, 3, 6);
+  regularPolygon(20, 100, 3, 6);
+  regularPolygon(15, 145, 3, 6);
+  regularPolygon(220, 200, 3, 6);
+  regularPolygon(240, 155, 3, 6);
+  regularPolygon(260, 160, 3, 6);
+  regularPolygon(280, 220, 3, 6);
+  regularPolygon(300, 120, 3, 6);
+  regularPolygon(320, 100, 3, 6);
+  regularPolygon(340, 145, 3, 6);
+  regularPolygon(360, 200, 3, 6);
+  regularPolygon(240, 155, 3, 6);
+  regularPolygon(380, 160, 3, 6);
+
+  fill("gray");
+  ellipse(100, 400, 300, 100);
+  ellipse(300, 400, 300, 100);
+  // SPRITE INTERACTIONS
+  // if the player touches the obstacle
+  // the health goes down, and the obstacle turns 
+     if (fogue.isTouching(mete)) {
+    mete.rotation = 30;
+    fogue.velocityX = 0;
+    health = health - 1;
+  } else {
+    mete.rotation = 0;
+  }
+  
+  // if the frog touches the fly
+  // the score goes up, the fly resets
+     if (fogue.isTouching(moeda)) {
+    moeda.x = randomNumber(420, 480);
+    moeda.y = randomNumber(50, 350);
+    score = score + 1;
+     }
+  // JUMPING
+  // if the player has reached the ground
+  // stop moving down
+
+  
+  // if the player presses the up arrow
+  // start moving up
+  if (fogue.y >325) {
+    if(keyWentDown("up")){
+      fogue.velocityY = -5;
+    } else {
+      fogue.velocityY = 0;
+    }
+  }
+
+  // if the player reaches the top of the jump
+  // start moving down
+     if (fogue.y < 150) {
+    fogue.velocityY = 5;
+     }
+  // LOOPING
+  // if the obstacle has gone off the left hand side of the screen, 
+  // move it to the right hand side of the screen
+ if (mete.x < -30) {
+    mete.x = 430;
+ }
+  // if the target has gone off the left hand side of the screen,
+  // move it to the right hand side of the screen
+  if (moeda.x < -30) {
+    moeda.x = randomNumber(420, 480);
+    moeda.y = randomNumber(50, 350);
+  }
+  // DRAW SPRITES
+  drawSprites();
+  
+  // SCOREBOARD
+  // add scoreboard and health meter
+  fill("black");
+  textSize(20);
+  text("Health:", 280, 30);
+  text (health, 350, 30);
+  // GAME OVER
+  // if health runs out
+  // show Game over
+  if (health < 0) {
+    background("black");
+    fill("green");
+    textSize(50);
+    text("Game Over!" , 40, 200);
+  }
+}
+
+// O código cria um jogo espacial em que o jogador deve desviar do meteoro e pegar moedas.
+// O jogador pode pular, ganhar pontos ao pegar moedas e perder vida ao tocar no meteoro.
+// Quando a vida acaba, aparece a mensagem "Game Over!".

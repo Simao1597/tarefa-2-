@@ -1,0 +1,31 @@
+var points = 0;
+var coin = createSprite(200, 100);
+coin.setAnimation("coin");
+var ghost = createSprite(200, 300);
+ghost.setAnimation("ghost");
+
+function draw() {
+  if (ghost.isTouching(coin)) {
+    points = points + 1;
+    coin.x = randomNumber(50, 350);
+    coin.y = randomNumber(50, 350);
+  }
+  background("lightblue");
+  text("Points: " + points, 25, 25);
+  if(keyDown("up")) {
+    ghost.y = ghost.y - 5;
+  }
+  if(keyDown("down")) {
+    ghost.y = ghost.y + 5;
+  }
+  if(keyDown("left")) {
+    ghost.x = ghost.x - 5;
+  }
+  if(keyDown("right")) {
+    ghost.x = ghost.x + 5;
+  }
+  drawSprites();
+}
+
+// O código cria um jogo em que o fantasma deve pegar a moeda para ganhar pontos.
+// O fantasma é controlado pelas setas e a moeda muda de posição após ser coletada.
