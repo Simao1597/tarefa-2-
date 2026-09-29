@@ -1,1 +1,1 @@
-
+Durante essas atividades aprendi a trabalhar com condições e mudanças de animações. Criei um dinossauro que muda de personagem, um balão que cresce e estoura e uma corrida com três corredores em velocidades diferentes. Também aprendi a usar if, alterar a visibilidade dos sprites e controlar seus movimentos pela tela.
