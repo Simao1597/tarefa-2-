@@ -1,1 +1,1 @@
-
+Aprendi a criar diferentes cenas e organizar o código usando funções. Também trabalhei com sprites, movimentos, colisões, pontuação e condições. Além disso, aprendi a criar um jogo com objetivo, inimigo, coleta de moedas e telas de vitória ou Game Over.
