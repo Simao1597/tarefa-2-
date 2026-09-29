@@ -1,1 +1,1 @@
-
+Aprendi a utilizar contadores e condições para criar diferentes ações, como movimentar abelhas, fazer o sal girar, controlar o crescimento dos objetos e mostrar cada etapa de uma pizza sendo comida. Essas atividades ajudaram a compreender melhor como criar interações e animações.
