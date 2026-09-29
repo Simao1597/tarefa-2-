@@ -1,0 +1,8 @@
+fill("white");
+stroke("black");
+textSize(20);
+strokeWeight(10);
+text("Four score and seven years ago...", 30, 200);
+
+// O código define a cor branca para o texto e preta para o contorno.
+// Depois, ajusta o tamanho e a espessura e mostra uma frase na tela.

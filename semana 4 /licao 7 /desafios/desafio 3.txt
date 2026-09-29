@@ -1,0 +1,7 @@
+textSize(50);
+fill("black");
+textSize(20);
+text("Four score and seven years ago...", 0, 200);
+
+// O código define a cor preta e o tamanho do texto.
+// Depois, mostra a frase na posição indicada da tela.

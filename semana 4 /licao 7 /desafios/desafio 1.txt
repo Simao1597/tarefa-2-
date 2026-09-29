@@ -1,0 +1,18 @@
+var sky = createSprite(200,200);
+sky.setAnimation("rainbow");
+
+drawSprites();
+
+textSize(50);
+fill("red");
+text("rainons", 30, 50);
+
+fill("green");
+text("in the", 70, 100);
+text("sky...", 110, 150);
+
+fill("blue");
+text("is beutifull", 120, 200);
+
+// O código cria um cenário com um arco-íris.
+// Depois, mostra frases na tela usando diferentes cores e tamanho de texto.
