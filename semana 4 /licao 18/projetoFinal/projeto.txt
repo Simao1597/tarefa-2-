@@ -1,0 +1,283 @@
+// Create your variables here
+var pontos1 = 0;
+var pontos2 = 0;
+var jogo = true;
+var paredes = createEdgeSprites();
+
+// Create your sprites here
+var jogador1 = createSprite(30, 200);
+var jogador2 = createSprite(370, 200);
+var bola = createSprite(200, 200);
+
+jogador1.setAnimation("animation_1");
+jogador2.setAnimation("animation_1_copy_1");
+bola.setAnimation("animation_2");
+
+jogador1.setCollider("rectangle", 0, 0, 20, 70);
+jogador2.setCollider("rectangle", 0, 0, 20, 70);
+bola.setCollider("circle", 0, 0, 10);
+
+bola.velocityX = 5;
+bola.velocityY = 3;
+
+function draw() {
+  // draw background
+ 
+  if (pontos1 == 0 && pontos2 == 0) {
+    background("black");
+  }
+ 
+  if (pontos1 == 1 || pontos2 == 1) {
+    background("darkblue");
+  }
+ 
+  if (pontos1 == 2 || pontos2 == 2) {
+    background("purple");
+  }
+ 
+  if (pontos1 >= 3 || pontos2 >= 3) {
+    background("darkred");
+  }
+ 
+  // update sprites
+  if (jogo) {
+    moverJogadores();
+    moverBola();
+    verificarColisao();
+    verificarPontos();
+    mostrarPlacar();
+  } else {
+    mostrarVencedor();
+  }
+ 
+  drawSprites();
+}
+
+// Create your functions here
+function moverJogadores() {
+
+
+ if (keyDown("w")) {
+
+   jogador1.y = jogador1.y - 6;
+
+ }
+
+
+ if (keyDown("s")) {
+
+   jogador1.y = jogador1.y + 6;
+
+ }
+
+
+ if (keyDown("up")) {
+
+   jogador2.y = jogador2.y - 6;
+
+ }
+
+
+ if (keyDown("down")) {
+
+   jogador2.y = jogador2.y + 6;
+
+ }
+
+
+ if (jogador1.y < 40) {
+
+   jogador1.y = 40;
+
+ }
+
+
+ if (jogador1.y > 360) {
+
+   jogador1.y = 360;
+
+ }
+
+
+ if (jogador2.y < 40) {
+
+   jogador2.y = 40;
+
+ }
+
+
+ if (jogador2.y > 360) {
+
+   jogador2.y = 360;
+
+ }
+}
+
+function moverBola() {
+
+
+ bola.bounceOff(paredes[2]);
+
+
+ bola.bounceOff(paredes[3]);
+
+
+ if (bola.y < 10) {
+
+   bola.y = 10;
+
+   bola.velocityY = Math.abs(bola.velocityY);
+
+ }
+
+
+ if (bola.y > 390) {
+
+   bola.y = 390;
+
+   bola.velocityY = -Math.abs(bola.velocityY);
+
+ }
+}
+
+function verificarColisao() {
+
+
+ if (bola.isTouching(jogador1)) {
+
+   bola.velocityX = Math.abs(bola.velocityX);
+
+   bola.x = jogador1.x + 20;
+
+ }
+
+
+ if (bola.isTouching(jogador2)) {
+
+   bola.velocityX = -Math.abs(bola.velocityX);
+
+   bola.x = jogador2.x - 20;
+
+ }
+}
+
+function verificarPontos() {
+
+
+ if (bola.x < -10) {
+
+   pontos2 = pontos2 + 1;
+
+   resetarBola();
+
+ }
+
+
+ if (bola.x > 410) {
+
+   pontos1 = pontos1 + 1;
+
+   resetarBola();
+
+ }
+
+
+ if (pontos1 >= 3 || pontos2 >= 3) {
+
+   jogo = false;
+
+   bola.velocityX = 0;
+
+   bola.velocityY = 0;
+
+ }
+}
+
+function resetarBola() {
+
+
+ bola.x = 200;
+
+ bola.y = 200;
+
+ bola.velocityY = randomNumber(-3, 3);
+
+
+ if (randomNumber(1, 2) == 1) {
+
+   bola.velocityX = 5;
+
+ } else {
+
+   bola.velocityX = -5;
+
+ }
+}
+
+function mostrarPlacar() {
+
+
+ fill("white");
+
+ textSize(30);
+
+ text(pontos1, 150, 40);
+
+ text(pontos2, 240, 40);
+
+
+ textSize(15);
+
+ text("Jogador 1: W / S", 20, 390);
+
+ text("Jogador 2: ↑ / ↓", 280, 390);
+}
+
+function mostrarVencedor() {
+
+
+ fill("white");
+
+ textSize(35);
+
+
+ if (pontos1 >= 3) {
+
+   text("JOGADOR 1 VENCEU!", 30, 180);
+
+   jogador1.visible = false;
+
+   jogador2.visible = false;
+
+   bola.visible = false;
+
+
+ }
+
+
+ if (pontos2 >= 3) {
+
+   text("JOGADOR 2 VENCEU!", 30, 180);
+
+   jogador1.visible = false;
+
+   jogador2.visible = false;
+
+   bola.visible = false;
+
+
+ }
+
+
+ textSize(25);
+
+ text(("Placar: " + pontos1) + " x " + pontos2, 120, 230);
+
+
+ textSize(18);
+
+ text("Primeiro a fazer 3 pontos!", 100, 270);
+}
+
+// O código cria um jogo de pingue-pongue para dois jogadores.
+// Os jogadores controlam as raquetes, a bola quica e os pontos são marcados até alguém fazer 3 pontos.
