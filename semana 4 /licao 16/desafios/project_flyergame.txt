@@ -1,0 +1,71 @@
+// GAME SETUP
+// create player, target, and obstacles
+var player = createSprite(200, 100);
+player.setAnimation("retroship_14_1");
+player.scale = 0.25;
+var target = createSprite(randomNumber(0,400), randomNumber(0,400));
+target.setAnimation("donut_03_1");
+target.scale = 0.17;
+var obstacleX = createSprite(-50, randomNumber(0,400));
+obstacleX.setAnimation("eightball_1");
+obstacleX.scale = 0.25;
+obstacleX.velocityX = 5;
+var obstacleY = createSprite(randomNumber(0,400), -50);
+obstacleY.velocityY = 5;
+obstacleY.scale = 0.25;
+obstacleY.setAnimation("eightball_1");
+
+function draw() {
+  background("darkblue");
+  
+  // FALLING
+  player.velocityY = player.velocityY + 1;
+  // LOOPING
+  if (obstacleX.x > 450) {
+    obstacleX.x = -50;
+    obstacleX.y = randomNumber(50, 350);
+  }
+  if (obstacleY.y > 450) {
+    obstacleY.y = -50;
+    obstacleY.x = randomNumber(50, 350);
+  }
+  
+  
+  // PLAYER CONTROLS
+  // change the y velocity when the user clicks "up"
+  if (keyDown("up")) {
+    player.velocityY = -10;
+  }
+  // decrease the x velocity when user clicks "left"
+  if (keyDown("left")) {
+    player.velocityX = player.velocityX - 0.3;
+  }
+  // increase the y velocity when the user clicks "right"
+  if (keyDown("right")) {
+    player.velocityX = player.velocityX + 0.3;
+  }
+  // SPRITE INTERACTIONS
+  // reset the coin when the player touches it
+  if (player.isTouching(target)) {
+    target.x = randomNumber(0,400);
+    target.y = randomNumber(0,400);
+  }
+  // make the obstacles push the player
+  player.collide(obstacleX);
+  player.collide(obstacleY);
+  
+  // DRAW SPRITES
+  drawSprites();
+  
+  // GAME OVER
+  if (player.x < -50 || player.x > 450 || player.y < -50 || player.y > 450) {
+    background("black");
+    textSize(50);
+    fill("green");
+    text("Game Over!", 50, 200);
+  }
+  
+}
+
+// O código cria um jogo com um jogador, um alvo e dois obstáculos em movimento.
+// O jogador pode ser controlado pelas setas, pegar o alvo e precisa evitar os obstáculos para não sair da tela.

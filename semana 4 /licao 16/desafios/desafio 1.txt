@@ -1,0 +1,27 @@
+// Create Gold Coin
+var goldCoin = createSprite(51,50);
+goldCoin.setAnimation("gold_coin");
+goldCoin.debug = true;
+goldCoin.velocityX = 2;
+goldCoin.velocityY = 2;
+goldCoin.debug = false;
+
+// Create Silver Coin
+var silverCoin = createSprite(350,350);
+silverCoin.setAnimation("silver_coin");
+silverCoin.debug = true;
+silverCoin.velocityX = -2;
+silverCoin.velocityY = -2;
+silverCoin.debug = false;
+
+function draw() {
+  background("darkgreen");
+
+  // Sprite Interactions
+  goldCoin.bounce(silverCoin);
+  
+  drawSprites();
+}
+
+// O código cria duas moedas que se movimentam em direções opostas.
+// Quando as moedas se encontram, elas quicam uma na outra usando o comando bounce().
