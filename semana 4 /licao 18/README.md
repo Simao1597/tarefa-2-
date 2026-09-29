@@ -1,1 +1,1 @@
-
+Durante essa atividade, tive como principais dificuldades controlar os dois jogadores ao mesmo tempo, fazer a bola mudar de direção ao tocar nas raquetes e organizar a contagem dos pontos. Também aprendi a usar funções para separar as partes do jogo, controlar os movimentos dos jogadores, verificar as colisões, marcar os pontos e definir o vencedor. Ao final, consegui criar um jogo de pingue-pongue para dois jogadores, em que vence quem fizer 3 pontos primeiro.
