@@ -1,1 +1,1 @@
-
+Aprendi a criar interações entre sprites usando condições e colisões. Trabalhei com personagens que mudam de animação, colisores, movimentação com teclado, contadores de pontos, moedas, obstáculos e sistema de vida. Também aprendi a criar movimentos de pulo, fazer objetos reaparecerem na tela e criar uma situação de Game Over.
