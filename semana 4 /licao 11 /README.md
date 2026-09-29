@@ -1,1 +1,1 @@
-
+Durante essas atividades, aprendi a controlar sprites usando as teclas do teclado, criar um contador de pontos e mudar as animações de acordo com os movimentos. Também aprendi a usar condições para controlar o comportamento dos personagens e criar situações em que as ações do jogador fazem os sprites desaparecerem ou ativam novas animações.
