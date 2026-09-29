@@ -1,0 +1,26 @@
+var mesa = createSprite(200, 200);
+mesa.setAnimation("animation_1");
+var raquete1 = createSprite(350, 200);
+raquete1.setAnimation("animation_3");
+var raquete2 = createSprite(50, 200);
+raquete2.setAnimation("animation_3");
+var bola = createSprite(200, 200);
+bola.setAnimation("animation_2");
+mesa.scale = 5;
+raquete1.scale = 2;
+raquete2.scale = 2;
+bola.velocityX = 3;
+function draw() {
+  background("white");
+
+  if (bola.x > 350) {
+    bola.velocityX = -3;
+  } else if (bola.x < 50) {
+    bola.velocityX = 3;
+  }
+
+  drawSprites();
+}
+
+// O código cria uma mesa de pingue-pongue com duas raquetes e uma bola.
+// A bola se movimenta de um lado para o outro, mudando de direção ao chegar nas bordas.
