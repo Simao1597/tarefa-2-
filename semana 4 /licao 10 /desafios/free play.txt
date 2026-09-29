@@ -1,0 +1,38 @@
+var fundo = createSprite(200, 200);
+fundo.setAnimation("sports_track_1");
+
+var linha = createSprite(60, 200);
+linha.setAnimation("animation_1");
+
+var corre1 = createSprite(300, 320);
+corre1.setAnimation("kid_15_walking_1");
+
+var corre2 = createSprite(300, 250);
+corre2.setAnimation("kid_34_side_1");
+
+var corre3 = createSprite(300, 170);
+corre3.setAnimation("kid_46_left_1");
+
+function draw() {
+  background("white");
+
+  corre1.scale = 0.25;
+  linha.scale = 4;
+  corre2.scale = 0.25;
+  corre3.scale = 0.35;
+
+  corre1.x = corre1.x - 1;
+  corre2.x = corre2.x - 2;
+  corre3.x = corre3.x - 3;
+
+  if (corre3.x < 20) {
+    linha.visible = false;
+  } else {
+    linha.visible = true;
+  }
+
+  drawSprites();
+}
+
+// O código cria uma pista com três corredores que se movimentam em velocidades diferentes.
+// Quando o terceiro corredor chega perto do lado esquerdo da tela, a linha desaparece.

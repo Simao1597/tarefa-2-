@@ -1,0 +1,29 @@
+var balloon = createSprite(200, 200);
+balloon.setAnimation("balloon");
+balloon.scale = 0.1;
+
+var pop = createSprite(200, 200);
+pop.setAnimation("pop");
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Update Values
+  balloon.scale = balloon.scale + 0.001;
+  pop.visible = false;
+
+  if (balloon.scale > 0.65) {
+    balloon.visible = false;
+
+    if (balloon.visible == false) {
+      pop.visible = true;
+    }
+  }
+
+  // Draw Animations
+  drawSprites();
+}
+
+// O código cria um balão que aumenta de tamanho gradualmente.
+// Quando o balão fica grande, ele desaparece e a animação de estouro aparece.
