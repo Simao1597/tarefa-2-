@@ -1,1 +1,1 @@
-
+Durante as atividades, aprendi a criar cenários e movimentar diferentes elementos. Trabalhei com peixes, bolhas, naves, meteoros, textos e sprites, utilizando comandos para alterar posição, tamanho, rotação e movimento. Também aprendi a usar o draw() para atualizar continuamente os elementos na tela e a utilizar o teclado para controlar os movimentos.
