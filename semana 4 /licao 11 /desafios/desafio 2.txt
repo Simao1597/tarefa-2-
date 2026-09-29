@@ -1,0 +1,34 @@
+var bug = createSprite(200, 200);
+bug.setAnimation("fly");
+
+function draw() {
+  //Draw Background
+  background("white");
+  
+  // Update Values
+  if(keyDown("up")){
+    bug.setAnimation("fly_copy_3");
+    bug.y = bug.y - 5;
+  }
+
+  if(keyDown("down")){
+    bug.setAnimation("fly_copy_2");
+    bug.y = bug.y + 5;
+  }
+
+  if(keyDown("left")){
+    bug.setAnimation("fly");
+    bug.x = bug.x - 5;
+  }
+
+  if(keyDown("right")){
+    bug.setAnimation("fly_copy_1");
+    bug.x = bug.x + 5;
+  }
+
+  //Draw Animations
+  drawSprites();
+}
+
+// O código cria um inseto que pode ser movimentado pelas setas do teclado.
+// A animação do inseto muda de acordo com a direção em que ele se movimenta.

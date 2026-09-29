@@ -1,0 +1,15 @@
+var clicks = 0;
+
+function draw() {
+  // add clicks when the space bar is pressed
+  if (keyWentDown("space")) {
+      clicks = clicks + 1;
+  }
+
+  background("white");
+  textSize(50);
+  text(clicks, 165, 175, 70, 50);
+}
+
+// O código cria um contador que aumenta em 1 toda vez que a tecla espaço é pressionada.
+// O número de cliques é mostrado na tela.

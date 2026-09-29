@@ -1,0 +1,43 @@
+var fundo = createSprite(200, 200);
+fundo.setAnimation("santa_1");
+
+var p1 = createSprite(100, 350);
+p1.setAnimation("retroship_06_1");
+
+var p2 = createSprite(300, 350);
+p2.setAnimation("retroship_09_1");
+
+var sprite = createSprite(200, 200);
+sprite.setAnimation("animation_1");
+
+function draw() {
+  p1.scale = 0.25;
+  p2.scale = 0.25;
+  sprite.scale = 5;
+  sprite.visible = false;
+
+  if (keyWentDown("a")) {
+    p1.y = p1.y - 10;
+  }
+
+  if (keyWentDown("d")) {
+    p2.y = p2.y - 3;
+  }
+
+  if (p1.y < 0) {
+    sprite.setAnimation("animation_1");
+    sprite.visible = true;
+    p1.visible = false;
+  }
+
+  if (p2.y < 0) {
+    sprite.setAnimation("animation_2");
+    sprite.visible = true;
+    p2.visible = false;
+  }
+
+  drawSprites();
+}
+
+// O código cria dois jogadores que se movimentam com as teclas A e D.
+// Quando um jogador chega ao topo da tela, ele desaparece e uma animação é exibida.
