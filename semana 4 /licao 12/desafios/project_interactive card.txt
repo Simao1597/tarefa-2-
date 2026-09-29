@@ -1,0 +1,110 @@
+var pizza1 = createSprite(200, 200);
+pizza1.setAnimation("pizzaa_01.jpg_1");
+
+var pizza2 = createSprite(200, 200);
+pizza2.setAnimation("pizza_02.jpg_1");
+
+var pizza3 = createSprite(200, 200);
+pizza3.setAnimation("pizza_03.jpg_1");
+
+var pizza4 = createSprite(200, 200);
+pizza4.setAnimation("pizza_04.jpg_1");
+
+var pizza5 = createSprite(200, 200);
+pizza5.setAnimation("pizza_05.jpg_1");
+
+var pizza6 = createSprite(200, 200);
+pizza6.setAnimation("pizza_06.jpg_1");
+
+var pizza7 = createSprite(200, 200);
+pizza7.setAnimation("pizza_07.jpg_1");
+
+var pizza8 = createSprite(200, 200);
+pizza8.setAnimation("pizza_08.jpg_1");
+
+var pizza9 = createSprite(200, 200);
+pizza9.setAnimation("pizza_09.jpg_1");
+
+var cont = 0;
+
+pizza1.visible = true;
+pizza2.visible = false;
+pizza3.visible = false;
+pizza4.visible = false;
+pizza5.visible = false;
+pizza6.visible = false;
+pizza7.visible = false;
+pizza8.visible = false;
+pizza9.visible = false;
+
+pizza1.scale = 0.35;
+pizza2.scale = 0.35;
+pizza3.scale = 0.35;
+pizza4.scale = 0.35;
+pizza5.scale = 0.35;
+pizza6.scale = 0.35;
+pizza7.scale = 0.35;
+pizza8.scale = 0.35;
+pizza9.scale = 0.35;
+
+function draw() {
+  if (keyWentDown("space")) {
+    pizza1.visible = false;
+    cont = cont + 1;
+
+    if (cont == 1) {
+      pizza2.visible = true;
+      pizza3.visible = false;
+    }
+
+    if (cont == 2) {
+      pizza3.visible = true;
+      pizza4.visible = false;
+    }
+
+    if (cont == 3) {
+      pizza4.visible = true;
+      pizza5.visible = false;
+    }
+
+    if (cont == 4) {
+      pizza5.visible = true;
+      pizza6.visible = false;
+    }
+
+    if (cont == 5) {
+      pizza6.visible = true;
+      pizza7.visible = false;
+    }
+
+    if (cont == 6) {
+      pizza7.visible = true;
+      pizza8.visible = false;
+    }
+
+    if (cont == 7) {
+      pizza8.visible = true;
+      pizza9.visible = false;
+    }
+
+    if (cont == 8) {
+      pizza9.visible = true;
+    }
+  }
+
+  drawSprites();
+
+  if (cont < 9) {
+    fill("black");
+    textSize(17);
+    text("APERTE ESPACO PARA COMER A PIZZA", 50, 40);
+  } else {
+    fill("black");
+    textSize(30);
+    text("A PIZZA ACABOU!!", 70, 200);
+  }
+}
+
+// O código cria várias imagens de uma pizza para mostrar cada pedaço sendo comido.
+// A cada vez que a tecla espaço é pressionada, a imagem muda para a próxima etapa.
+// Quando todos os pedaços acabam, aparece a mensagem "A PIZZA ACABOU!!".

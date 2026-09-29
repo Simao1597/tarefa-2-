@@ -1,0 +1,26 @@
+var abelha1 = createSprite(200, 200);
+abelha1.setAnimation("bee");
+
+var abelha2 = createSprite(200, 200);
+abelha2.setAnimation("bee");
+
+var abelha3 = createSprite(200, 200);
+abelha3.setAnimation("bee");
+
+function draw() {
+  background("lightblue");
+  
+  abelha1.x = World.mouseX + randomNumber(-50, 50);
+  abelha1.y = World.mouseY + randomNumber(-50, 50);
+
+  abelha2.x = World.mouseX + randomNumber(-50, 50);
+  abelha2.y = World.mouseY + randomNumber(-50, 50);
+
+  abelha3.x = World.mouseX + randomNumber(-50, 50);
+  abelha3.y = World.mouseY + randomNumber(-50, 50);
+  
+  drawSprites();
+}
+
+// O código cria três abelhas que acompanham a posição do mouse.
+// Cada abelha fica em uma posição aleatória próxima ao cursor, criando um efeito de movimento.

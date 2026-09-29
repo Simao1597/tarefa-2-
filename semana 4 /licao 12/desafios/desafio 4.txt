@@ -1,0 +1,23 @@
+var salt = createSprite(200, 200);
+salt.setAnimation("salt");
+salt.rotation = 150;
+
+var contador = 0;
+
+function draw() {
+  background("skyblue");
+  
+  if (mouseDidMove()) {
+    salt.rotation = randomNumber(135, 165);
+    contador = contador + 1;
+  }
+
+  if (contador > 100) {
+    salt.rotation = 360;
+  }
+  
+  drawSprites();
+}
+
+// O código cria um sprite de sal que muda de rotação quando o mouse se movimenta.
+// Cada movimento aumenta o contador e, após mais de 100 movimentos, o sal gira para 360 graus.
