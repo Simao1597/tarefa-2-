@@ -1,0 +1,40 @@
+var bolha = 400;
+var orangeFish = createSprite(400, randomNumber(0, 100));
+orangeFish.setAnimation("orange_fish");
+
+var blueFish = createSprite(250, randomNumber(0, 200));
+blueFish.setAnimation("blue_fish");
+
+var greenFish = createSprite(300, randomNumber(200, 300));
+greenFish.setAnimation("green_fish");
+
+function draw() {
+  // Draw Background
+  background("navy");
+  
+  // Update Values
+  if (keyDown("left")) {
+    orangeFish.x = orangeFish.x - randomNumber(-1, 3);
+    blueFish.x = blueFish.x - randomNumber(1, 5);
+    greenFish.x = greenFish.x - randomNumber(-2, 5);
+
+    // Draw Animations
+    orangeFish.rotation = randomNumber(-1, 3);
+    blueFish.rotation = randomNumber(-1, 3);
+    greenFish.rotation = randomNumber(-1, 3);
+  }
+
+  noFill();
+  stroke("withe");
+  ellipse(200, bolha, 25, 25);
+  ellipse(100, bolha, 25, 25);
+  ellipse(300, bolha, 25, 25);
+
+  bolha = bolha - 2;
+
+  drawSprites();
+}
+
+// O código cria três peixes em um cenário subaquático.
+// Ao pressionar a tecla esquerda, os peixes se movimentam e giram.
+// As bolhas sobem pela tela continuamente.

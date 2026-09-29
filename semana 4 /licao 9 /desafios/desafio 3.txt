@@ -1,0 +1,38 @@
+var meteorito = 40;
+var texto1 = 20;
+var texto2 = 250;
+
+var nave1 = createSprite(200, 150);
+nave1.setAnimation("spacebattle_08_1");
+
+var nave2 = createSprite(200, 250);
+nave2.setAnimation("spacebattle_06_1");
+
+function draw() {
+  background("darkblue");
+
+  nave1.x = nave1.x + 1;
+  nave2.x = nave2.x - 1;
+
+  nave1.scale = 0.25;
+  nave2.scale = 0.25;
+  nave2.rotation = 180;
+
+  meteorito = meteorito + 4;
+  texto1 = texto1 + 1;
+  texto2 = texto2 - 1;
+
+  textSize(15);
+  fill("white");
+  text("cuido com os meteoros", texto1, 170);
+  text("obrigado", texto2, 270);
+
+  fill("orange");
+  ellipse(meteorito, 40, 40, 40);
+  ellipse(meteorito, 350, 40, 40);
+
+  drawSprites();
+}
+
+// O código cria duas naves espaciais que se movimentam em direções opostas.
+// Também cria meteoros e textos que se movimentam pela tela.
