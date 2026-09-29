@@ -1,1 +1,1 @@
-
+Aprendi a trabalhar com colisões, quique e gravidade. Criei animais e moedas que interagem, bolas que quicam no chão e um jogo com personagem, alvo e obstáculos. Também aprendi a usar colisores, velocidades, controles pelo teclado, movimentação dos objetos e condições para criar diferentes interações nos jogos.
