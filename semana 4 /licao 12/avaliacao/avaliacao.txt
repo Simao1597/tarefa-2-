@@ -1,0 +1,26 @@
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("sky");
+
+var creature = createSprite(200,250);
+creature.setAnimation("creature");
+creature.scale = 0.2;
+
+function draw() {
+  //shake the sprite when the mouse is pressed
+  if (mouseDown("leftButton")) {
+    creature.rotation = randomNumber(-5,5);
+  }
+
+  drawSprites();
+  
+  //display the text when the mouse is NOT pressed
+  if (mouseDown("leftButton") == 0) {
+    fill("black");
+    textSize(40);
+    text("Press the mouse to shake the creature.", 20, 50, 360, 100);
+  }
+}
+
+// O código cria um cenário com uma criatura.
+// Quando o botão esquerdo do mouse é pressionado, a criatura gira aleatoriamente.
+// Quando o mouse não está pressionado, aparece uma mensagem na tela.
