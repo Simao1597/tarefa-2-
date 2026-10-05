@@ -1,0 +1,15 @@
+#include <stdio.h>          /* 1. importar bibliotecas necessárias */
+
+int main(void) {            /* 2. ponto de entrada obrigatório */
+
+    /* 3. declarações de variáveis (tipo obrigatório) */
+    int x = 10;
+    float f = 3.14;
+
+    /* 4. instruções — cada uma termina com ; */
+    printf("x = %d\n", x);
+
+    return 0;               /* 5. sinaliza que o programa terminou com sucesso */
+}
+
+/* Este progama guarda dois valores e imprime apenas um que é o x e no terminal aparece o valor que a em x que é 10.*/
