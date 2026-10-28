@@ -1,0 +1,21 @@
+#include <stdio.h>
+ 
+union Dado { int i; float f; char c; };
+ 
+int main(void) {
+    union Dado d;
+    d.i = 65;
+    printf("d.i='%d'  d.c='%c'\n", d.i, d.c);   /* 65 e 'A' — mesmos bytes */
+    d.f = 3.14f;
+    printf("d.f=%.2f\n", d.f);   /* d.i agora tem valor indefinido */
+    return 0;
+}
+
+/* EXPLICAÇÃO DO FUNCIONAMENTO:
+ * Uma union reserva uma região de memória compartilhada por todos os seus membros. Depois de
+ * d.i = 65, os bytes podem ser interpretados também como char, e em sistemas comuns isso
+ * corresponde a 'A'. Ao atribuir d.f = 3.14f, os bytes passam a representar o float; não se
+ * deve tratar d.i como se ainda contivesse o inteiro 65. A interpretação de um membro
+ * diferente do último escrito depende da representação e das regras da implementação.
+ */
+
