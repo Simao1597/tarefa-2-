@@ -1,0 +1,16 @@
+#include <stdio.h>
+ 
+int main(void) {
+    int n = 1;
+    do {
+        printf("n = %d\n", n);
+        n *= 2;
+    } while (n < 32);
+    return 0;
+}
+
+/* EXPLICAÇÃO DO FUNCIONAMENTO:
+ * O do-while executa o bloco antes de testar a condição. n começa em 1; a cada repetição é
+ * impresso e multiplicado por 2. Os valores mostrados são 1, 2, 4, 8 e 16. Depois n passa a
+ * 32 e a condição n < 32 fica falsa, encerrando o laço.
+ */

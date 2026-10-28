@@ -1,0 +1,20 @@
+#include <stdio.h>
+ 
+int main(void) {
+    int dia = 3;
+    switch (dia) {
+        case 1: case 2: case 3: case 4: case 5:
+            printf("Dia util\n");  break;
+        case 6: case 7:
+            printf("Fim de semana\n"); break;
+        default:
+            printf("Invalido\n");
+    }
+    return 0;
+}
+
+/* EXPLICAÇÃO DO FUNCIONAMENTO:
+ * dia vale 3. O switch encontra o case 3, que faz parte do grupo dos cases 1 a 5. Como não há
+ * instruções entre esses cases, todos direcionam ao mesmo bloco. O programa imprime Dia util
+ * e o break impede que o fluxo continue para outros casos.
+ */
