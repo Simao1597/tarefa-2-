@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stddef.h>
+ 
+int main(void) {
+    int v[4] = {10, 20, 30, 40};
+    int *p = v;
+ 
+    printf("*p     = %d\n", *p);
+    printf("*(p+1) = %d\n", *(p+1));
+    printf("*(p+2) = %d\n", *(p+2));
+ 
+    int *q = v + 3;
+    ptrdiff_t diff = q - p;
+    printf("q - p  = %td\n", diff);   /* 3 */
+ 
+    p++;
+    printf("apos p++: *p = %d\n", *p);   /* 20 */
+    return 0;
+}
+
+/* EXPLICAÇÃO DO FUNCIONAMENTO:
+ * p aponta para o primeiro elemento de v. *p, *(p+1) e *(p+2) acessam 10, 20 e 30. q aponta
+ * para v[3], então q - p vale 3 elementos, não uma quantidade de bytes. Depois p++ faz p
+ * avançar para o elemento seguinte, e *p passa a valer 20.
+ */

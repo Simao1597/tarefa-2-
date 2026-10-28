@@ -1,0 +1,22 @@
+#include <stdio.h>
+ 
+int main(void) {
+    int   x  = 42;
+    int  *p  = &x;
+    int **pp = &p;
+ 
+    printf("x   = %d\n",   x);
+    printf("*p  = %d\n",  *p);
+    printf("**pp= %d\n", **pp);
+ 
+    **pp = 100;
+    printf("x apos **pp=100: %d\n", x);
+    return 0;
+}
+
+/* EXPLICAÇÃO DO FUNCIONAMENTO:
+ * p guarda o endereço de x, enquanto pp guarda o endereço de p. Por isso *p acessa x e **pp
+ * também chega ao valor de x passando pelos dois níveis de ponteiro. A atribuição **pp = 100
+ * altera x, e a última linha imprime 100.
+ */
+

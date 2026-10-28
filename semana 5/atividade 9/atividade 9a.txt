@@ -1,0 +1,22 @@
+#include <stdio.h>
+ 
+int main(void) {
+    int x = 10;
+    int *p = &x;
+ 
+    printf("x    = %d\n",  x);
+    printf("&x   = %p\n",  (void*)&x);
+    printf("p    = %p\n",  (void*)p);
+    printf("*p   = %d\n",  *p);
+ 
+    *p = 99;
+    printf("x apos *p=99: %d\n", x);
+    return 0;
+}
+
+/* EXPLICAÇÃO DO FUNCIONAMENTO:
+ * x começa com 10 e p recebe &x, ou seja, o endereço de x. &x e p devem representar o mesmo
+ * endereço, embora a forma impressa do endereço varie a cada execução. *p lê o valor guardado
+ * nesse endereço. Quando o programa faz *p = 99, modifica x por meio do ponteiro; a última
+ * impressão mostra 99.
+ */
