@@ -1,0 +1,29 @@
+#include <stdio.h>
+ 
+int global = 0;   /* variáveis globais são inicializadas com 0 automaticamente */
+ 
+int main(void) {
+    int a = 42;
+    int b;          /* valor lixo — NUNCA use antes de atribuir */
+    b = a + 8;
+ 
+    printf("a = %d\n", a);
+    printf("b = %d\n", b);
+    printf("global = %d\n", global);
+ 
+    const int N = 100;
+    /* N = 200; */   /* erro de compilação: assignment of read-only variable */
+    printf("N = %d\n", N);
+    return 0;
+}
+
+/* EXPLICAÇÃO DO FUNCIONAMENTO:
+ * a recebe 42. b é declarado sem valor inicial, mas antes de ser impresso recebe a + 8, ou
+ * seja, 50; por isso o programa não utiliza o valor indeterminado de b. A variável global é
+ * inicializada automaticamente com zero. N é uma constante: pode ser lida, mas não pode ser
+ * alterada depois de inicializada. A linha que tentaria atribuir N = 200 está comentada
+ * porque provocaria erro de compilação.
+ */
+
+
+
