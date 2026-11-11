@@ -1,0 +1,48 @@
+#include <stdio.h>
+#define MAX 100000
+
+void remover_nl(char *nome){
+    int i = 0;
+    for(i;nome[i] != '\0';i++){
+        if(nome[i] == '\n'){
+            nome[i] = '\0';
+        }
+    }
+}
+
+void ler_strings(){
+/*Faça uma funcao que le uma sequencia de strings no formato "%d %f %s", onde 
+ - O decimal corresponde a idade;
+ - O float corresponde a altura;
+ - A string corresponde ao nome de uma pessoa, a sequencia de strings eh terminada quando se inseri uma string vazia;
+ - Apos o termino da sequencia imprima a media das idades,  altura e nome da pessoa mais idosa.
+*/
+}
+
+int le_linha(char str[], int* idade, double* altura, char nome[]) {
+    sscanf(str,"%d %lf %[^\n]",idade, altura, nome);
+    return 0;
+}
+
+int main() {
+    char linha[30];
+    char nome[30];
+    int maior_idade = 0;
+    int qtd_pessoas = 0;
+    int soma_idades = 0;
+    char idoso[30];
+    do {
+       fgets(linha, 30, stdin);
+       if (linha[0] == '\n') break;
+       int idade;
+       double altura;
+       le_linha(linha, &idade, &altura, nome);
+       qtd_pessoas = qtd_pessoas +1;
+       if (idade > maior_idade) {
+          maior_idade = idade;
+       }
+       soma_idades = soma_idades + idade;
+    } while (1);
+    printf("Média = %f", (float) soma_idades / qtd_pessoas);
+    printf("Maior idade = %d", maior_idade);
+}
